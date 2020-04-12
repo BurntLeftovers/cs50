@@ -1,0 +1,48 @@
+//code is written in C but I don't know where to specify that (if necessary)
+#include <stdio.h>
+#include <cs50.h>
+
+void print_spaces(int num); // see functions below for details
+void print_hashes(int num);
+
+int main(void)
+{
+    // prompt and validate user input
+    int height, spaces, hashes; // establish intervals
+    
+    do
+    {
+        height = get_int("Enter height: ");
+    }
+    while(height < 1 || height > 8);
+        
+    // establish printing pattern
+    spaces = height - 1;
+    hashes = 1;
+    //loop through printing
+    for (int i = 0; i < height; i++)
+    {
+        print_spaces(spaces);
+        print_hashes(hashes);
+        printf("\n");
+        spaces--;
+        hashes++;
+    }
+}
+
+//functions 
+void print_spaces(int num)
+{
+    for(int i = 0; i < num; i++)
+    {
+        printf(" ");
+    }
+}
+
+void print_hashes(int num)
+{
+    for(int i = 0; i < num; i++)
+    {
+        printf("#");
+    }
+}
